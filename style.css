@@ -1,23 +1,32 @@
+@font-face {
+	font-family: 'Windows Regular';
+	src: url('../fonts/windows_regular.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/windows_regular.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/windows_regular.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/windows_regular.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/windows_regular.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/windows_regular.svg#windows_regular') format('svg'); /* Chrome < 4, Legacy iOS */
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Windows Regular', monospace;
+}
+main{
+    background-color: #008081;
+    height: 99vh;
+    position: relative;
 }
 table{
+    margin: auto;
     border-spacing: 0;
 }
 td{
-    border-width: 4px;
-    border-bottom-color: #7b797b;
-    border-right-color: #7b797b;
-    border-top-color: #ffffff;
-    border-left-color: #ffffff;
-    border-style: solid;
     width: 30px;
     height: 30px;
     background-color: #bebdbe;
-    font-family: monospace;
-    font-size: 16px;
+    font-size: 15px;
     text-align: center; 
 }
 td:hover{
@@ -29,14 +38,9 @@ td:active{
 #minesweeper{
     background-color: #bebdbe;
     height: 330px;
-    width: 260px;
+    width: 98%;
     padding: 5px;
-    border-width: 4px;
-    border-bottom-color: #7b797b;
-    border-right-color: #7b797b;
-    border-top-color: #ffffff;
-    border-left-color: #ffffff;
-    border-style: solid;
+    margin: auto;
 }
 #headframe{
     height: 20%;
@@ -49,6 +53,17 @@ td:active{
     height: 50px;
     width: 50px;
     font-size: 1.5rem;
+}
+#again:active{
+    border-width: 1px;
+    background-color: #7b797b;
+}
+#bomb-count-wrap, #flag-count-wrap{
+    font-size: 16px;
+    text-align: center;
+    width: 40%; 
+}
+.border-element{
     border-width: 4px;
     border-bottom-color: #7b797b;
     border-right-color: #7b797b;
@@ -56,13 +71,109 @@ td:active{
     border-left-color: #ffffff;
     border-style: solid;
 }
-#again:active{
-    border-width: 1px;
+.window-wrapper{
     background-color: #7b797b;
+    width: 280px;
+    height: 370px;
+    border-width: 2px;
+    border-color: white;
 }
-#bomb-count-wrap, #flag-count-wrap{
-    font-family: monospace;
-    font-size: 16px;
-    text-align: center;
-    width: 40%; 
+.header-window{
+    display: flex;
+    flex-direction: row;
+    background-color: #000081;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4px;
+}
+.logo{
+    max-width: 20px;
+    max-height: 20px;
+    margin: 2px 1px;
+}
+.desc{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.left-desc h4{
+    letter-spacing: 0.1rem;
+    color: white;
+}
+.right-desc{
+    height: 20px;
+}
+.control{
+    height: 100%;
+    width: 20px;
+    border-width: 2px;
+    margin-right: 2px;
+    position: relative;
+}
+.roll{
+    display: block;
+    border-bottom: 4px black solid;
+    margin: 1px;
+    height: 90%;
+}
+.unroll{
+    display: block;
+    height: 90%;
+    margin: 1px;
+    border-width: 4px 2px 2px 2px;
+    border-style: solid;
+    border-color: black;
+}
+.close:before{
+    content: "\00d7";
+    font-size: 30px;
+    position: absolute;
+    top: -10px;
+    right: 1px;
+}
+#win-panel{
+    background-color: #c0c0c0;
+    position: absolute;
+    height: 45px;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    border-top: 3px white double;
+
+}
+.panel-logo{
+    width: 70px;
+}
+.panel-logo img{
+    height: 90%;
+    width: 100%;
+}
+.tab{
+    border-width: 3px;
+    border-bottom-color: black;
+    border-right-color: black;
+    border-top-color: #e4e7e4;
+    border-left-color: #e4e7e4;
+    border-style: solid;
+    margin: 1px 3px;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    align-items: center;
+}
+.tab img{
+    max-width: 30px;
+    max-height: 30px;
+}
+#win-logo{
+    width: 60px;
+}
+.active{
+    background-color: whitesmoke;
+    border-bottom-color: #e4e7e4;
+    border-right-color: #e4e7e4;
+    border-top-color: black;
+    border-left-color: black;
 }

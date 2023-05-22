@@ -28,6 +28,7 @@ function startGame(){
         for (let j = 0; j < components.col; ++j){
             td = document.createElement('td');
             td.id = "cell-" + i + '-' + j;
+            td.classList.add("border-element")
             td.onclick = function(){
                 openCell(this.id);
             };
@@ -81,14 +82,11 @@ function openCell(id){
             if (i - 1 >= 0 && j + 1 < components.col) components.matrix[i - 1][j + 1]--;
             components.matrix[i][j] === 0;
         }
-        console.log(components.matrix);
+        // console.log(components.matrix);
     }
-    let count = document.getElementById('bomb-count');
-    count.innerText = components.bombCount;
+    document.getElementById('bomb-count').innerText = components.bombCount;
     let c = parseIdCell(id);
     if (components.matrix[c[0]][c[1]] < 0){
-        button = document.getElementById('again');
-        button.hidden = false;
         removeEvents();
     }
     open(c);
@@ -153,7 +151,6 @@ function createBombField(row, col, parsedID){
             }
         }
     }
-    components.digitsCount = components.col * components.row - components.bombCount;
     return m;
 }
 function createFullField(bombMatrix){
@@ -178,6 +175,7 @@ function createFullField(bombMatrix){
             }
         }
     }
+    components.digitsCount = result.flat().filter(n => (n >= 0)).length;
     return result;
 }
 function makeOpenCell(id){
@@ -190,10 +188,6 @@ function makeOpenCell(id){
         let colorIndex = elem.innerText;
         elem.style.color = components.colors[colorIndex];
         components.openedDigits++;
-        if (checkWin()){
-            alert('Fucking slaves');
-            document.getElementById('again').innerText = '😎';
-        }
     }
     else{
         if (components.matrix[id[0]][id[1]] < 0){
@@ -202,9 +196,13 @@ function makeOpenCell(id){
             document.getElementById('again').innerText = '😣';
         }
         else{
-            elem.innerText = 'ㅤ';
-            components.openedDigits++;  
+            elem.innerText = 'ㅤ'; 
+            components.openedDigits++;
         }
+    }
+    if (checkWin()){
+        // alert('You win');
+        document.getElementById('again').innerText = '😎';
     }
 }
 
