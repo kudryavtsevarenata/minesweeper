@@ -1,11 +1,11 @@
 @font-face {
 	font-family: 'Windows Regular';
-	src: url('../fonts/windows_regular.eot'); /* IE 9 Compatibility Mode */
-	src: url('../fonts/windows_regular.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
-		url('../fonts/windows_regular.woff2') format('woff2'), /* Super Modern Browsers */
-		url('../fonts/windows_regular.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
-		url('../fonts/windows_regular.ttf') format('truetype'), /* Safari, Android, iOS */
-		url('../fonts/windows_regular.svg#windows_regular') format('svg'); /* Chrome < 4, Legacy iOS */
+	src: url('fonts/windows_regular.eot'); /* IE 9 Compatibility Mode */
+	src: url('fonts/windows_regular.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('fonts/windows_regular.woff2') format('woff2'), /* Super Modern Browsers */
+		url('fonts/windows_regular.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('fonts/windows_regular.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('fonts/windows_regular.svg#windows_regular') format('svg'); /* Chrome < 4, Legacy iOS */
 }
 *{
     margin: 0;
@@ -17,6 +17,7 @@ main{
     background-color: #008081;
     height: 99vh;
     position: relative;
+    overflow: hidden;
 }
 table{
     margin: auto;
@@ -34,6 +35,9 @@ td:hover{
 }
 td:active{
     border-width: 0;
+}
+.game-name{
+    cursor: default;
 }
 #minesweeper{
     background-color: #bebdbe;
@@ -134,6 +138,7 @@ td:active{
 #win-panel{
     background-color: #c0c0c0;
     position: absolute;
+    z-index: 2;
     height: 45px;
     width: 100%;
     bottom: 0;
@@ -176,4 +181,7 @@ td:active{
     border-right-color: #e4e7e4;
     border-top-color: black;
     border-left-color: black;
+}
+.tab-name{
+    cursor: default;
 }

@@ -13,11 +13,11 @@
 </head>
 <body>
     <main>
-        <section class="window-wrapper">
+        <section class="window-wrapper minesweeper-wrapper" onmousedown="getMovements(this)">
             <section class="header-window">
                 <div class="desc left-desc">
-                    <img class="logo" src="https://w7.pngwing.com/pngs/337/559/png-transparent-minesweeper-computer-icons-bing-maps-video-game-mines-miscellaneous-game-angle.png">
-                    <h4 class="game-name">Minesweeper</h4>
+                    <img class="logo" src="https://w7.pngwing.com/pngs/929/151/png-transparent-computer-icons-icon-design-minesweeper-game-computer-minesweeper-thumbnail.png">
+                    <h4 class="game-name" onselectstart="return false;">Minesweeper</h4>
                 </div>
                 <div class="desc right-desc">
                     <button class="control border-element"><span class="roll"></span></button>
@@ -27,9 +27,9 @@
             </section>
             <section id="minesweeper" class="border-element">
                 <div id="headframe">
-                    <p id="bomb-count-wrap">💣<span id="bomb-count"></span></p>
-                    <button id="again" class="border-element" onclick="startGame()"></button>
-                    <p id="flag-count-wrap">🚩<span id="flag-count">0</span></p>
+                    <p id="bomb-count-wrap" onselectstart="return false;">💣<span id="bomb-count"></span></p>
+                    <button id="again" class="border-element" onclick="startGame()" onseleclstart="return false;"></button>
+                    <p id="flag-count-wrap" onselectstart="return false;">🚩<span id="flag-count">0</span></p>
                 </div>
                 <div id="gameframe">
                     <table>
@@ -43,15 +43,11 @@
                 <img id="win-logo" src="https://avatars.dzeninfra.ru/get-zen_doc/751940/pub_5fb2c9ed9bb3e62374e21b05_5fb3fd61f6872f437e499d23/scale_1200">
             </section>
             <section class="tab active" id="minesweep-tab">
-                <img src="https://w7.pngwing.com/pngs/337/559/png-transparent-minesweeper-computer-icons-bing-maps-video-game-mines-miscellaneous-game-angle.png">
-                <h3>Minesweeper</h3>
+                <img src="https://w7.pngwing.com/pngs/929/151/png-transparent-computer-icons-icon-design-minesweeper-game-computer-minesweeper-thumbnail.png">
+                <h3 class="tab-name" onselectstart="return false;">Minesweeper</h3>
             </section>
         </header>
     </main>
- <!--   <script>
-        if (window.jQuery) alert("jQuery подключен");
-        else alert("jQuery не подключен");
-        </script> -->
     <script src="script.js"></script>
 </body>
 </html>

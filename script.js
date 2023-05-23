@@ -201,11 +201,37 @@ function makeOpenCell(id){
         }
     }
     if (checkWin()){
-        // alert('You win');
         document.getElementById('again').innerText = '😎';
     }
 }
 
 function checkWin(){
     return components.openedDigits == components.digitsCount;
+}
+
+function getMovements(window){
+    window.onmousedown = function(event){
+        let shiftX = event.clientX - window.getBoundingClientRect().left;
+        let shiftY = event.clientY - window.getBoundingClientRect().top;
+        window.style.position = 'absolute';
+        window.style.zIndex = 1;
+        moveAt(event.pageX, event.pageY);
+
+        function moveAt(pageX, pageY){
+            window.style.left = pageX - shiftX + 'px';
+            window.style.top = pageY - shiftY + 'px'; 
+        }
+
+        function onMouseMove(event){
+            moveAt(event.pageX, event.pageY);
+        }
+        document.addEventListener('mousemove', onMouseMove);
+        window.onmouseup = function(){
+            document.removeEventListener('mousemove', onMouseMove);
+            window.onmouseup = null;
+        }
+    }
+    window.ondragstart = function(){
+        return false;
+    }
 }
