@@ -16,14 +16,32 @@
         <img src="images/snooker.gif" alt="preloader">
     </div>
     <main>
-        <section class="window-wrapper" onmousedown="getMovements(this)">
+        <div class="icons">
+            <div class="icon">
+                <img src="images/my-comp.png">
+                <h3>My Computer</h3>
+            </div>
+            <div class="icon">
+                <img src="images/mosaic.png">
+                <h3>Mosaic</h3>
+            </div>
+            <div class="icon">
+                <img src="images/icon.png">
+                <h3>Minesweeper</h3>
+            </div>
+            <div class="icon" id="bin">
+                <img src="images/win-bin.png">
+                <h3>Bin</h3>
+            </div>
+        </div>
+        <section class="window-wrapper" id="minesweeper-wrapper" onmousedown="getMovements(this)">
             <section class="header-window">
                 <div class="desc left-desc">
                     <img class="logo" src="images/icon.png">
                     <h4 class="game-name" onselectstart="return false;">Minesweeper</h4>
                 </div>
                 <div class="desc right-desc">
-                    <button class="control border-element"><span class="roll"></span></button>
+                    <button class="control border-element" onclick="roll('minesweeper-wrapper', 'minesweep-tab')"><span class="roll"></span></button>
                     <button class="control border-element"><span class="unroll"></span></button>
                     <button class="control border-element"><span class="close"></span></button>
                 </div>
@@ -45,7 +63,7 @@
             <section class="panel-logo">
                 <img id="win-logo" src="https://avatars.dzeninfra.ru/get-zen_doc/751940/pub_5fb2c9ed9bb3e62374e21b05_5fb3fd61f6872f437e499d23/scale_1200">
             </section>
-            <section class="tab active" id="minesweep-tab">
+            <section class="tab active" id="minesweep-tab" onclick="roll('minesweeper-wrapper', 'minesweep-tab')">
                 <img src="images/icon.png">
                 <h3 class="tab-name" onselectstart="return false;">Minesweeper</h3>
             </section>

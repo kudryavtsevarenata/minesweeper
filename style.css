@@ -12,6 +12,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Windows Regular', monospace;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
 }
 
 .preloader{
@@ -112,8 +118,8 @@ td:active{
     border-color: white;
     position: absolute;
     top: 40px;
-    left: 30px;
-    z-index: 1;
+    left: 200px;
+    z-index: 2;
 }
 .header-window{
     display: flex;
@@ -171,14 +177,13 @@ td:active{
 #win-panel{
     background-color: #c0c0c0;
     position: absolute;
-    z-index: 2;
+    z-index: 4;
     height: 45px;
     width: 100%;
     bottom: 0;
     display: flex;
     flex-direction: row;
     border-top: 3px white double;
-
 }
 .panel-logo{
     width: 70px;
@@ -217,4 +222,37 @@ td:active{
 }
 .tab-name{
     cursor: default;
+}
+.icons{
+    margin: 10px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.icon{
+    margin-bottom: 10px;
+    width: 100px;
+    height: 90px;
+    text-align: center;
+}
+.icon img{
+    max-height: 50px;
+    max-width: 50px;
+    min-width: 40px;
+    min-height: 40px;
+}
+.icon h3{
+    color: white;
+    font-weight: 100;
+}
+#bin{
+    position: absolute;
+    bottom: 46px;
+    right: 0;
 }

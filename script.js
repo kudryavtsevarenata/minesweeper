@@ -239,3 +239,15 @@ function getMovements(window){
         return false;
     }
 }
+function roll(idElem, idTab){
+    let window = document.getElementById(idElem);
+    let tab = document.getElementById(idTab);
+    if (window.hidden === false){
+        window.hidden = true;
+        tab.classList.remove('active');
+    }
+    else{
+        tab.classList.add('active');
+        window.hidden = false;
+    }
+}
