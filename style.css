@@ -13,9 +13,38 @@
     box-sizing: border-box;
     font-family: 'Windows Regular', monospace;
 }
+
+.preloader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    z-index: 10;
+}
+.hide-preloader{
+    animation: hide-preloader 1.5s;
+}
+.preloader-hidden{
+    display: none;
+    z-index: -1;
+}
+@keyframes hide-preloader{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
 main{
     background-color: #008081;
-    height: 99vh;
+    height: 100vh;
     position: relative;
     overflow: hidden;
 }
@@ -81,6 +110,10 @@ td:active{
     height: 370px;
     border-width: 2px;
     border-color: white;
+    position: absolute;
+    top: 40px;
+    left: 30px;
+    z-index: 1;
 }
 .header-window{
     display: flex;

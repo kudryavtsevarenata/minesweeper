@@ -42,7 +42,14 @@ function startGame(){
     }
 }
 
-window.onload = startGame;
+window.onload = function() {
+    let preloader = document.querySelector('.preloader');
+    preloader.classList.add('hide-preloader');
+    setTimeout(function(){
+        preloader.classList.add('preloader-hidden');
+    }, 990);
+    startGame();
+}
 
 function placeFlag(id){
     let elem = document.getElementById(id);
@@ -216,12 +223,10 @@ function getMovements(window){
         window.style.position = 'absolute';
         window.style.zIndex = 1;
         moveAt(event.pageX, event.pageY);
-
         function moveAt(pageX, pageY){
             window.style.left = pageX - shiftX + 'px';
             window.style.top = pageY - shiftY + 'px'; 
         }
-
         function onMouseMove(event){
             moveAt(event.pageX, event.pageY);
         }
