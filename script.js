@@ -10,8 +10,7 @@ let components = {
     openedDigits: 0,
     flagCount: 0,
     digitsCount: 0
-} 
-
+}
 function startGame(){
     document.getElementById('again').innerText = '🙂';
     components.bombCount = 0;
@@ -190,7 +189,7 @@ function makeOpenCell(id){
     let elem = document.getElementById(s);
     elem.style.background = '#bebdbe';
     elem.style.border = '1px solid grey';
-    if (components.matrix[id[0]][id[1]] > 0){
+    if (components.matrix[id[0]][id[1]] > 0 && elem.innerText != 'ㅤ' &&  !(elem.innerText >= '1' && elem.innerText <= '8')){
         elem.innerText = components.matrix[id[0]][id[1]];
         let colorIndex = elem.innerText;
         elem.style.color = components.colors[colorIndex];
@@ -202,7 +201,7 @@ function makeOpenCell(id){
             elem.style.background = 'red';
             document.getElementById('again').innerText = '😣';
         }
-        else{
+        else if (components.matrix[id[0]][id[1]] === 0){
             elem.innerText = 'ㅤ'; 
             components.openedDigits++;
         }
