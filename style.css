@@ -264,3 +264,6 @@ td:active{
 #meme-tab{
     display: none;
 }
+.active-window-wrapper{
+    z-index: 3;
+}

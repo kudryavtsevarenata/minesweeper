@@ -38,47 +38,49 @@
                 <h3>Bin</h3>
             </div>
         </div>
-        <section class="window-wrapper" id="minesweeper-wrapper" onmousedown="getMovements(this)">
-            <section class="header-window">
-                <div class="desc left-desc">
-                    <img class="logo" src="images/icon.png">
-                    <h4 class="game-name" onselectstart="return false;">Minesweeper</h4>
-                </div>
-                <div class="desc right-desc">
-                    <button class="control border-element" onclick="roll('minesweeper-wrapper', 'minesweep-tab')"><span class="roll"></span></button>
-                    <button class="control border-element"><span class="unroll"></span></button>
-                    <button class="control border-element" onclick="closeWindow('minesweeper-wrapper', 'minesweep-tab')"><span class="close"></span></button>
-                </div>
+        <div id="main-frame">
+            <section class="window-wrapper" id="minesweeper-wrapper" onmousedown="getMovements(this)">
+                <section class="header-window">
+                    <div class="desc left-desc">
+                        <img class="logo" src="images/icon.png">
+                        <h4 class="game-name" onselectstart="return false;">Minesweeper</h4>
+                    </div>
+                    <div class="desc right-desc">
+                        <button class="control border-element" onclick="roll('minesweeper-wrapper', 'minesweep-tab')"><span class="roll"></span></button>
+                        <button class="control border-element"><span class="unroll"></span></button>
+                        <button class="control border-element" onclick="closeWindow('minesweeper-wrapper', 'minesweep-tab')"><span class="close"></span></button>
+                    </div>
+                </section>
+                <section id="minesweeper" class="border-element">
+                    <div id="headframe">
+                        <p id="bomb-count-wrap" onselectstart="return false;">💣<span id="bomb-count"></span></p>
+                        <button id="again" class="border-element" onclick="startGame()" onseleclstart="return false;"></button>
+                        <p id="flag-count-wrap" onselectstart="return false;">🚩<span id="flag-count">0</span></p>
+                    </div>
+                    <div id="gameframe">
+                        <table>
+                            <tbody id="field"></tbody>
+                        </table>
+                    </div>
+                </section>
             </section>
-            <section id="minesweeper" class="border-element">
-                <div id="headframe">
-                    <p id="bomb-count-wrap" onselectstart="return false;">💣<span id="bomb-count"></span></p>
-                    <button id="again" class="border-element" onclick="startGame()" onseleclstart="return false;"></button>
-                    <p id="flag-count-wrap" onselectstart="return false;">🚩<span id="flag-count">0</span></p>
-                </div>
-                <div id="gameframe">
-                    <table>
-                        <tbody id="field"></tbody>
-                    </table>
-                </div>
+            <section class="window-wrapper" id="meme-wrapper" onmousedown="getMovements(this)" hidden>
+                <section class="header-window">
+                    <div class="desc left-desc">
+                        <img class="logo" src="images/sql-meme.jpg">
+                        <h4 class="game-name" onselectstart="return false;">meme.jpg</h4>
+                    </div>
+                    <div class="desc right-desc">
+                        <button class="control border-element" onclick="roll('meme-wrapper', 'meme-tab')"><span class="roll"></span></button>
+                        <button class="control border-element"><span class="unroll"></span></button>
+                        <button class="control border-element" onclick="closeWindow('meme-wrapper', 'meme-tab')"><span class="close"></span></button>
+                    </div>
+                </section>
+                <section id="meme" class="border-element">
+                    <img src="images/sql-meme.jpg">
+                </section>
             </section>
-        </section>
-        <section class="window-wrapper" id="meme-wrapper" onmousedown="getMovements(this)" hidden>
-            <section class="header-window">
-                <div class="desc left-desc">
-                    <img class="logo" src="images/sql-meme.jpg">
-                    <h4 class="game-name" onselectstart="return false;">meme.jpg</h4>
-                </div>
-                <div class="desc right-desc">
-                    <button class="control border-element" onclick="roll('meme-wrapper', 'meme-tab')"><span class="roll"></span></button>
-                    <button class="control border-element"><span class="unroll"></span></button>
-                    <button class="control border-element" onclick="closeWindow('meme-wrapper', 'meme-tab')"><span class="close"></span></button>
-                </div>
-            </section>
-            <section id="meme" class="border-element">
-                <img src="images/sql-meme.jpg">
-            </section>
-        </section>
+        </div>
         <header id="win-panel">
             <section class="panel-logo">
                 <img id="win-logo" src="https://avatars.dzeninfra.ru/get-zen_doc/751940/pub_5fb2c9ed9bb3e62374e21b05_5fb3fd61f6872f437e499d23/scale_1200">

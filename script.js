@@ -226,7 +226,11 @@ function getMovements(window){
         let shiftX = event.clientX - window.getBoundingClientRect().left;
         let shiftY = event.clientY - window.getBoundingClientRect().top;
         window.style.position = 'absolute';
-        window.style.zIndex = 1;
+        let collection = window.parentNode.children;
+        for (let i = 0; i < collection.length; ++i){
+            collection[i].style.zIndex = 2;
+        }
+        window.style.zIndex = 3;
         moveAt(event.pageX, event.pageY);
         function moveAt(pageX, pageY){
             window.style.left = pageX - shiftX + 'px';
@@ -264,6 +268,7 @@ function closeWindow(idElem, idTab){
     tab.classList.remove('active');
     tab.style.display = 'none';
     tab.style.position = 'absolute';
+    window.style.zIndex = 2;
 }
 function openWindow(obj, idElem, idTab){
     obj.classList.add('active-icon');
@@ -273,4 +278,5 @@ function openWindow(obj, idElem, idTab){
     tab.classList.add('active');
     tab.style.position = 'static';
     tab.style.display = 'flex';
+    window.style.zIndex = 3;
 }
