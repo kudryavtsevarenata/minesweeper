@@ -112,8 +112,6 @@ td:active{
 }
 .window-wrapper{
     background-color: #7b797b;
-    width: 280px;
-    height: 370px;
     border-width: 2px;
     border-color: white;
     position: absolute;
@@ -192,6 +190,10 @@ td:active{
     height: 90%;
     width: 100%;
 }
+#tabs{
+    display: flex;
+    flex-direction: row;
+}
 .tab{
     border-width: 3px;
     border-bottom-color: black;
@@ -255,4 +257,10 @@ td:active{
     position: absolute;
     bottom: 46px;
     right: 0;
+}
+.active-icon{
+    background-color: rgba(0, 0, 255, 0.5);
+}
+#meme-tab{
+    display: none;
 }

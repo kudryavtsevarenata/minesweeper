@@ -49,7 +49,13 @@ window.onload = function() {
     }, 990);
     startGame();
 }
-
+window.onclick = function(){
+    let obj = document.getElementsByClassName('icons');
+    let collection = obj[0].children;
+    for (let i = 0; i < collection.length; ++i){
+        collection[i].classList.remove('active-icon');
+    }
+}
 function placeFlag(id){
     let elem = document.getElementById(id);
     let c = parseIdCell(id);
@@ -250,4 +256,21 @@ function roll(idElem, idTab){
         tab.classList.add('active');
         window.hidden = false;
     }
+}
+function closeWindow(idElem, idTab){
+    let window = document.getElementById(idElem);
+    let tab = document.getElementById(idTab);
+    window.hidden = true;
+    tab.classList.remove('active');
+    tab.style.display = 'none';
+    tab.style.position = 'absolute';
+}
+function openWindow(obj, idElem, idTab){
+    obj.classList.add('active-icon');
+    let window = document.getElementById(idElem);
+    let tab = document.getElementById(idTab);
+    window.hidden = false;
+    tab.classList.add('active');
+    tab.style.position = 'static';
+    tab.style.display = 'flex';
 }

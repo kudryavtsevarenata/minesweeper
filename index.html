@@ -25,9 +25,13 @@
                 <img src="images/mosaic.png">
                 <h3>Mosaic</h3>
             </div>
-            <div class="icon">
+            <div class="icon" ondblclick="openWindow(this,'minesweeper-wrapper', 'minesweep-tab')">
                 <img src="images/icon.png">
                 <h3>Minesweeper</h3>
+            </div>
+            <div class="icon" ondblclick="openWindow(this,'meme-wrapper', 'meme-tab')">
+                <img src="images/sql-meme.jpg">
+                <h3>meme.jpg</h3>
             </div>
             <div class="icon" id="bin">
                 <img src="images/win-bin.png">
@@ -43,7 +47,7 @@
                 <div class="desc right-desc">
                     <button class="control border-element" onclick="roll('minesweeper-wrapper', 'minesweep-tab')"><span class="roll"></span></button>
                     <button class="control border-element"><span class="unroll"></span></button>
-                    <button class="control border-element"><span class="close"></span></button>
+                    <button class="control border-element" onclick="closeWindow('minesweeper-wrapper', 'minesweep-tab')"><span class="close"></span></button>
                 </div>
             </section>
             <section id="minesweeper" class="border-element">
@@ -59,13 +63,35 @@
                 </div>
             </section>
         </section>
+        <section class="window-wrapper" id="meme-wrapper" onmousedown="getMovements(this)" hidden>
+            <section class="header-window">
+                <div class="desc left-desc">
+                    <img class="logo" src="images/sql-meme.jpg">
+                    <h4 class="game-name" onselectstart="return false;">meme.jpg</h4>
+                </div>
+                <div class="desc right-desc">
+                    <button class="control border-element" onclick="roll('meme-wrapper', 'meme-tab')"><span class="roll"></span></button>
+                    <button class="control border-element"><span class="unroll"></span></button>
+                    <button class="control border-element" onclick="closeWindow('meme-wrapper', 'meme-tab')"><span class="close"></span></button>
+                </div>
+            </section>
+            <section id="meme" class="border-element">
+                <img src="images/sql-meme.jpg">
+            </section>
+        </section>
         <header id="win-panel">
             <section class="panel-logo">
                 <img id="win-logo" src="https://avatars.dzeninfra.ru/get-zen_doc/751940/pub_5fb2c9ed9bb3e62374e21b05_5fb3fd61f6872f437e499d23/scale_1200">
             </section>
-            <section class="tab active" id="minesweep-tab" onclick="roll('minesweeper-wrapper', 'minesweep-tab')">
-                <img src="images/icon.png">
-                <h3 class="tab-name" onselectstart="return false;">Minesweeper</h3>
+            <section id="tabs">
+                <section class="tab active" id="minesweep-tab" onclick="roll('minesweeper-wrapper', 'minesweep-tab')">
+                    <img src="images/icon.png">
+                    <h3 class="tab-name" onselectstart="return false;">Minesweeper</h3>
+                </section>
+                <section class="tab" id="meme-tab" onclick="roll('meme-wrapper', 'meme-tab')">
+                    <img src="images/sql-meme.jpg">
+                    <h3 class="tab-name" onselectstart="return false;">meme.jpg</h3>
+                </section>
             </section>
         </header>
     </main>
