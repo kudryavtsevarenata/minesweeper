@@ -57,11 +57,9 @@
                         <button id="again" class="border-element" onclick="startGame()" onseleclstart="return false;"></button>
                         <p id="flag-count-wrap" onselectstart="return false;">🚩<span id="flag-count">0</span></p>
                     </div>
-                    <div id="gameframe">
-                        <table>
-                            <tbody id="field"></tbody>
-                        </table>
-                    </div>
+                    <table id="cells">
+                        <tbody id="field"></tbody>
+                    </table>
                 </section>
             </section>
             <section class="window-wrapper" id="meme-wrapper" onmousedown="getMovements(this)" hidden>
@@ -94,6 +92,12 @@
                     <img src="images/sql-meme.jpg">
                     <h3 class="tab-name" onselectstart="return false;">meme.jpg</h3>
                 </section>
+            </section>
+            <section id="panel-datetime">
+                <div id="datetime">
+                    <p id="time"></p>
+                    <p id="date"></p>
+                </div>
             </section>
         </header>
     </main>

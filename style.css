@@ -59,10 +59,10 @@ table{
     border-spacing: 0;
 }
 td{
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     background-color: #bebdbe;
-    font-size: 15px;
+    font-size: 14px;
     text-align: center; 
 }
 td:hover{
@@ -76,7 +76,6 @@ td:active{
 }
 #minesweeper{
     background-color: #bebdbe;
-    height: 330px;
     width: 98%;
     padding: 5px;
     margin: auto;
@@ -87,6 +86,7 @@ td:active{
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin: 15px 0;
 }
 #again{
     height: 50px;
@@ -118,6 +118,8 @@ td:active{
     top: 40px;
     left: 200px;
     z-index: 2;
+    max-width: 900px;
+    max-height: 700px;
 }
 .header-window{
     display: flex;
@@ -181,6 +183,7 @@ td:active{
     bottom: 0;
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     border-top: 3px white double;
 }
 .panel-logo{
@@ -266,4 +269,19 @@ td:active{
 }
 .active-window-wrapper{
     z-index: 3;
+}
+#panel-datetime{
+    margin-left: auto;
+    margin-right: 10px;
+}
+#datetime{
+    height: 100%;
+    text-align: center;
+}
+#time{
+    font-weight: 800;
+    font-size: 1.1em;
+}
+#date{
+    font-size: 0.8em;
 }

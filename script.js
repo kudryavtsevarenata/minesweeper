@@ -48,7 +48,26 @@ window.onload = function() {
         preloader.classList.add('preloader-hidden');
     }, 990);
     startGame();
+    updateTime();
 }
+
+function updateTime(){
+    let curTime = new Date();
+    let h = curTime.getHours();
+    let min = curTime.getMinutes();
+    if (min < 10)
+        min = "0" + min;
+    let sTime = h + ":" + min;
+    document.getElementById("time").innerText = sTime;
+    let dd = String(curTime.getDate()).padStart(2, '0');
+    let mm = String(curTime.getMonth() + 1).padStart(2, '0');
+    let yyyy = curTime.getFullYear();
+    let today = dd + '/' + mm + '/' + yyyy;
+    document.getElementById("date").innerText = today;
+}
+
+setInterval(updateTime, 1000);
+
 window.onclick = function(){
     let obj = document.getElementsByClassName('icons');
     let collection = obj[0].children;
