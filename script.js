@@ -11,7 +11,7 @@ let components = {
     flagCount: 0,
     digitsCount: 0
 }
-function startGame(){
+function setStartCondition(){
     document.getElementById('again').innerText = '🙂';
     components.bombCount = 0;
     components.openedDigits = 0;
@@ -22,6 +22,9 @@ function startGame(){
     document.getElementById('flag-count').innerText = ' ';
     components.flagCount = 0;
     components.isFirstPressed = true;
+}
+function startGame(){
+    setStartCondition();
     for (let i = 0; i < components.row; ++i){
         r = document.createElement('tr');
         for (let j = 0; j < components.col; ++j){
@@ -77,7 +80,6 @@ window.onclick = function(){
 }
 function placeFlag(id){
     let elem = document.getElementById(id);
-    let c = parseIdCell(id);
     if (elem.innerText === components.flag){
         elem.innerText = '';
         --components.flagCount;
@@ -95,13 +97,13 @@ function unParseID(id){
 }
 
 function openCell(id){
+    let c = parseIdCell(id);
+    let i = c[0];
+    let j = c[1];
     if (components.isFirstPressed){
         components.isFirstPressed = false;
-        let c = parseIdCell(id);
         let bombMatrix = createBombField(components.row, components.col, c);
         components.matrix = createFullField(bombMatrix);
-        let i = c[0];
-        let j = c[1];
         if (components.matrix[i][j] <= -1){
             if (i - 1 >= 0 && document.getElementById(id).innerText === '') components.matrix[i - 1][j]--;
             if (i - 1 >= 0 && j - 1 >= 0) components.matrix[i - 1][j - 1]--;
@@ -116,8 +118,7 @@ function openCell(id){
         // console.log(components.matrix);
     }
     document.getElementById('bomb-count').innerText = components.bombCount;
-    let c = parseIdCell(id);
-    if (components.matrix[c[0]][c[1]] < 0){
+    if (components.matrix[i][j] < 0){
         removeEvents();
     }
     open(c);
@@ -191,14 +192,14 @@ function createFullField(bombMatrix){
         for (let j = 0; j < bombMatrix[i].length; ++j){
             if (bombMatrix[i][j] !== 1){
                 let counter = 0;
-                if (i - 1 >= 0 && bombMatrix[i - 1][j] == 1) ++counter;
-                if (i - 1 >= 0 && j - 1 >= 0 && bombMatrix[i - 1][j - 1] == 1) ++counter;
-                if (j - 1 >= 0 && bombMatrix[i][j - 1] == 1) ++counter;
-                if (j - 1 >= 0 && i + 1 < components.row && bombMatrix[i + 1][j - 1] == 1) ++counter;
-                if (i + 1 < components.row && bombMatrix[i + 1][j] == 1) ++counter;
-                if (i + 1 < components.row && j + 1 < components.col && bombMatrix[i + 1][j + 1] == 1) ++counter;
-                if (j + 1 < components.col && bombMatrix[i][j + 1] == 1) ++counter;
-                if (i - 1 >= 0 && j + 1 < components.col && bombMatrix[i - 1][j + 1] == 1) ++counter;
+                if (i - 1 >= 0 && bombMatrix[i - 1][j] === 1) ++counter;
+                if (i - 1 >= 0 && j - 1 >= 0 && bombMatrix[i - 1][j - 1] === 1) ++counter;
+                if (j - 1 >= 0 && bombMatrix[i][j - 1] === 1) ++counter;
+                if (j - 1 >= 0 && i + 1 < components.row && bombMatrix[i + 1][j - 1] === 1) ++counter;
+                if (i + 1 < components.row && bombMatrix[i + 1][j] === 1) ++counter;
+                if (i + 1 < components.row && j + 1 < components.col && bombMatrix[i + 1][j + 1] === 1) ++counter;
+                if (j + 1 < components.col && bombMatrix[i][j + 1] === 1) ++counter;
+                if (i - 1 >= 0 && j + 1 < components.col && bombMatrix[i - 1][j + 1] === 1) ++counter;
                 result[i][j] = counter;
             }
             else{
@@ -214,7 +215,7 @@ function makeOpenCell(id){
     let elem = document.getElementById(s);
     elem.style.background = '#bebdbe';
     elem.style.border = '1px solid grey';
-    if (components.matrix[id[0]][id[1]] > 0 && elem.innerText != 'ㅤ' &&  !(elem.innerText >= '1' && elem.innerText <= '8')){
+    if (components.matrix[id[0]][id[1]] > 0 && elem.innerText !== 'ㅤ' &&  !(elem.innerText >= '1' && elem.innerText <= '8')){
         elem.innerText = components.matrix[id[0]][id[1]];
         let colorIndex = elem.innerText;
         elem.style.color = components.colors[colorIndex];
@@ -237,7 +238,7 @@ function makeOpenCell(id){
 }
 
 function checkWin(){
-    return components.openedDigits == components.digitsCount;
+    return components.openedDigits === components.digitsCount;
 }
 
 function getMovements(window){
@@ -251,14 +252,18 @@ function getMovements(window){
         }
         window.style.zIndex = 3;
         moveAt(event.pageX, event.pageY);
+
         function moveAt(pageX, pageY){
             window.style.left = pageX - shiftX + 'px';
             window.style.top = pageY - shiftY + 'px'; 
         }
+
         function onMouseMove(event){
             moveAt(event.pageX, event.pageY);
         }
+
         document.addEventListener('mousemove', onMouseMove);
+
         window.onmouseup = function(){
             document.removeEventListener('mousemove', onMouseMove);
             window.onmouseup = null;
