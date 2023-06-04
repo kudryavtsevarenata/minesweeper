@@ -1,3 +1,6 @@
+const uAgent = navigator.userAgent;
+document.getElementById('user-agent').innerText = uAgent;
+
 let components = {
     col: 8,
     row: 8,
@@ -46,10 +49,12 @@ function startGame(){
 
 window.onload = function() {
     let preloader = document.querySelector('.preloader');
-    preloader.classList.add('hide-preloader');
+    setTimeout(function() {
+        preloader.classList.add('hide-preloader');
+    }, 2000);
     setTimeout(function(){
         preloader.classList.add('preloader-hidden');
-    }, 990);
+    }, 3000);
     startGame();
     updateTime();
 }
