@@ -56,6 +56,12 @@
     display: none;
     z-index: -1;
 }
+#call-to-boot{
+    color: rgb(214,247,99);
+    position: absolute;
+    bottom: 5%;
+    left: 40%;
+}
 @keyframes hide-preloader{
     0%{
         opacity: 1;

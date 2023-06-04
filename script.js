@@ -1,6 +1,7 @@
 const uAgent = navigator.userAgent;
 document.getElementById('user-agent').innerText = uAgent;
 
+
 let components = {
     col: 8,
     row: 8,
@@ -47,7 +48,21 @@ function startGame(){
     }
 }
 
+function playBootTheme(){
+    let audio = new Audio("sounds/boot.mp3");
+    audio.play();
+}
+
 window.onload = function() {
+    $(document).keypress(function(e) {
+        if(e.which == 13) {
+            playBootTheme();
+            bootSystem();
+        }
+    });
+}
+
+function bootSystem(){
     let preloader = document.querySelector('.preloader');
     setTimeout(function() {
         preloader.classList.add('hide-preloader');
@@ -291,6 +306,8 @@ function roll(idElem, idTab){
     }
 }
 function closeWindow(idElem, idTab){
+    let audio = new Audio('sounds/clck.mp3');
+    audio.play();
     let window = document.getElementById(idElem);
     let tab = document.getElementById(idTab);
     window.hidden = true;
@@ -300,6 +317,8 @@ function closeWindow(idElem, idTab){
     window.style.zIndex = 2;
 }
 function openWindow(obj, idElem, idTab){
+    let audio = new Audio('sounds/clck.mp3');
+    audio.play();
     obj.classList.add('active-icon');
     let window = document.getElementById(idElem);
     let tab = document.getElementById(idTab);
